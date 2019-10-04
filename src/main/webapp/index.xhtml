@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>  </h:head>
+   <body>
+   <div style="width:100%; font-size: 36px; line-height: 48px; background-color:orange; color: black "> Practica JSF </div>
+   
+   
+   <h:form>
+   
+   		<h:panelGrid columns="2">
+   
+   			<h:outputLabel  value="Fecha Actual" />
+  			<h:inputText id="fechaActual" value="#{controladorMB.fecha}" />
+  			<h:commandButton  action="#{controladorMB.generarFecha()}" value=" Fecha" />	
+   
+   		 </h:panelGrid>
+   		 
+   </h:form>
+
+
+ <h:form><br /> <br />
+   
+   		<h:panelGrid columns="2">
+   
+   			<h:outputLabel value="Contar" />
+  			<h:inputText id="presione" value="#{controladorMB.cont}" />
+			<h:commandButton value="presione"  action="#{controladorMB.contar()}" /> 
+			
+   		 </h:panelGrid>
+   		 
+   </h:form> 
+   
+ 
+ 
+ <h:form><br /> <br />
+   
+   		<h:panelGrid columns="2">
+   
+   			<h:outputLabel value="Caracter" />
+  			<h:inputText id="caracter" value="#{ncaracteres.caracter}" >
+  			<f:ajax render="return" execute="caracter" event="keyup" listener="#{ncaracteres.tamanio()}" >  </f:ajax>
+  			</h:inputText>
+  			
+  			<h:outputLabel value="numero" />
+  			<h:inputText id="return" value="#{ncaracteres.num}" />
+  			
+  			
+			
+			
+   		 </h:panelGrid>
+   		 
+   </h:form> 
+   
+   
+   
+    <h:form> <br /> <br />
+   
+   		<h:panelGrid columns="2">
+   
+   			<h:outputLabel value="Titulo" />
+  			<h:inputText value="#{controLAS.modeloLibro.titulo}" /> 
+  			<h:outputLabel value="Fecha" />
+  			<h:inputText value="#{controLAS.modeloLibro.fecha}" /> 
+  			<h:outputLabel value="Editor" />
+  			<h:inputText value="#{controLAS.modeloLibro.editor}" />
+  			<h:outputLabel value="Autor" />
+  			<h:inputText value="#{controLAS.modeloLibro.autor}" />
+			
+			
+			<h:commandButton action="#{controLAS.guardarLibro()}" value="Guardar" />
+			<h:commandButton action="#{controLAS.listarLibros()}" value="Listar" />
+			
+   		 </h:panelGrid>
+   		 
+   		
+   		 <h:dataTable value="#{controLAS.libro}" var="_librotabla" styleClass="tablasimple" >
+   		
+   			 <h:column> 
+   			 
+   		 			<f:facet name="cabecera"> Titulo </f:facet> 
+   		 			<h:inputText value="#{_librotabla.titulo}" /> 
+   		 		
+   			 </h:column>
+   			 
+   			 <h:column> 
+   			 
+   		 			<f:facet name="cabecera"> Fecha </f:facet> 
+   		 			<h:inputText value="#{_librotabla.fecha}" /> 
+   		 		
+   			 </h:column>
+   			 
+   			 <h:column> 
+   			 
+   		 			<f:facet name="cabecera"> Editor </f:facet> 
+   		 			<h:inputText value="#{_librotabla.editor}" /> 
+   		 		
+   			 </h:column>
+   			 
+   			 <h:column> 
+   			 
+   		 			<f:facet name="cabecera"> Autor </f:facet> 
+   		 			<h:inputText value="#{_librotabla.autor}" /> 
+   		 		
+   			 </h:column>
+   		 
+   		 
+   		 
+   		 
+   		 </h:dataTable>
+   		 
+   		 
+   		 
+   </h:form>
+
+
+
+   </body>
+   
+</html>
